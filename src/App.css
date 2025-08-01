@@ -1,0 +1,6 @@
+#root {
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+  background: var(--color-background);
+}
