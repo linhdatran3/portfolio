@@ -3,7 +3,7 @@ export const Logo = ({ className }: { className?: string }) => (
     xmlns="http://www.w3.org/2000/svg"
     width="180"
     height="80"
-    viewBox="0 0 250 100"
+    viewBox="0 0 160 100"
     style={{ fill: "var(--foreground)" }}
     className={className}
   >
