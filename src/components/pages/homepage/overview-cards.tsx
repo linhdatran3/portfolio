@@ -34,9 +34,9 @@ const modalTitleRecord = {
 };
 
 const modalClassName = {
-  experiences: "",
+  experiences: "sm:max-w-[60%] overflow-y-auto h-[80%] custom-scrollbar",
   skills: "sm:max-w-[60%] overflow-y-auto h-[80%] custom-scrollbar",
-  projects: "sm:max-w-[60%] h-[80%] custom-scrollbar",
+  projects: "sm:max-w-[80%] h-[80%]",
   education: "sm:max-w-[60%] overflow-y-auto h-[80%] custom-scrollbar",
   me: "sm:max-w-[60%] overflow-y-auto h-[80%] custom-scrollbar",
 };

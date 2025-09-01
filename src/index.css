@@ -202,6 +202,5 @@ button:focus-visible {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary); /* Tailwind blue-500 */
-  border-radius: 9999px;
+  background-color: var(--color-primary);
 }
