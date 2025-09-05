@@ -3,6 +3,7 @@ import OEThumbnail from "@/assets/oe-thumbnail.png";
 import LivereThumbnail from "@/assets/livere-thumbnail.png";
 import LecleMeetThumbnail from "@/assets/lecle-meet-thumbnail.png";
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
@@ -79,35 +80,58 @@ export const ProjectsSection = () => {
   const [selected, setSelected] = useState(projects[0]);
 
   return (
-    <div className="flex gap-6 overflow-y-hidden">
-      {/* Left - Scrollable List */}
-      <div className="w-1/3 max-w-[300px] h-full overflow-y-auto custom-scrollbar space-y-4 p-4 pr-2">
+    <div className="flex flex-col md:flex-row gap-6 overflow-y-hidden h-full">
+      {/* Left — Horizontal on mobile, vertical scroll on desktop */}
+      <div
+        className="
+    w-full md:w-1/3 md:max-w-[320px]
+    flex flex-row md:flex-col
+    gap-4
+    p-4 pr-2
+    h-32 md:h-full
+    overflow-x-auto md:overflow-x-hidden
+    overflow-y-hidden md:overflow-y-auto
+    snap-x snap-mandatory md:snap-none
+    custom-scrollbar
+  "
+      >
         {projects.map((project) => (
           <div
             key={project.id}
             onClick={() => setSelected(project)}
-            className={`cursor-pointer border rounded-lg overflow-hidden group transition-all duration-200 hover:scale-[1.02] ${
-              selected.id === project.id ? "border-primary" : "border-muted"
-            }`}
+            className={`
+        cursor-pointer border rounded-lg overflow-hidden group
+        transition-all duration-200 hover:scale-[1.02]
+        ${selected.id === project.id ? "border-primary" : "border-muted"}
+        min-w-[220px] md:min-w-0   
+        snap-start                
+      `}
           >
             <Image
               src={project.thumbnail}
               alt={project.title}
-              className="w-full h-full max-h-56 overflow-hidden object-contain group-hover:opacity-90"
+              className="
+          w-full
+          h-24 md:h-32
+          object-contain
+          bg-white/50
+          group-hover:opacity-90
+        "
             />
-            <div className="p-2 text-center font-medium">{project.title}</div>
+            <div className="px-2 py-2 text-center text-sm md:text-base font-medium line-clamp-1">
+              {project.title}
+            </div>
           </div>
         ))}
       </div>
 
       {/* Right - Detail Viewer */}
-      <div className="flex-1 bg-muted/10 border border-muted rounded-xl p-6 backdrop-blur-sm space-y-2">
+      <div className="flex-1 bg-muted/10 border border-muted rounded-xl p-6 backdrop-blur-sm space-y-2 overflow-y-auto custom-scrollbar">
         <h3 className="text-2xl font-semibold">{selected.title}</h3>
         <div className="flex gap-2 items-center">
           <p className="text-muted-foreground font-semibold text-sm">{selected.date}</p>
-          <p className="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded-md w-fit">
-            {selected.type}
-          </p>
+
+          <Badge variant={"secondary"}> {selected.type}</Badge>
         </div>
         <p className="text-sm text-muted-foreground mb-4">{selected.description}</p>
         <div>

@@ -1,66 +1,91 @@
-const timelineItems = [
+import { useMemo } from "react";
+
+import LogoUIT from "@/assets/logo-uit.png";
+import LogoR2S from "@/assets/logo-r2s.png";
+import LogoDevera from "@/assets/logo-devera.png";
+import LogoAISC from "@/assets/logo-aisc.jpg";
+import LogoDBC from "@/assets/logo-dbc.png";
+import { AchievementCard, type AchievementItem } from "./achievement-card";
+
+const eduTimelineItems: AchievementItem[] = [
   {
     type: "Education",
-    title: "Bachelor of Computer Science",
-    subtitle: "University of Technology",
-    date: "2018 – 2022",
-    image: "/images/university.png",
-    description: "Graduated with honors. Specialized in web development.",
+    title: "Bachelor of E‑commerce",
+    subtitle: "University of Information Technology (VNU-HCM)",
+    date: "2019–2023",
+    image: LogoUIT as unknown as string,
+    description: "Top 2 GPA. Graduated with Good classification.",
+  },
+  {
+    type: "Education",
+    title: "Master of Information Systems",
+    subtitle: "University of Information Technology (VNU-HCM)",
+    date: "2025–Present",
+    image: LogoUIT as unknown as string,
+    description: "Admitted with the highest entrance score.",
+  },
+];
+
+const certItems: AchievementItem[] = [
+  {
+    type: "Certificate",
+    title: "ReactJS Development Course",
+    subtitle: "Devera Academy",
+    date: "Sep 2022",
+    image: LogoDevera as unknown as string,
+    linkLabel: "View Certificate",
   },
   {
     type: "Certificate",
-    title: "Meta React Certification",
-    subtitle: "Coursera",
-    date: "May 2024",
-    image: "/images/react-cert.png",
-    description: "Covered React fundamentals, hooks, and optimization.",
-    link: "#",
+    title: "Web Development",
+    subtitle: "Resource Software Solution Academy",
+    date: "Dec 2021",
+    image: LogoR2S as unknown as string,
+    linkLabel: "View Certificate",
+  },
+];
+
+const awardItems: AchievementItem[] = [
+  {
+    type: "Award",
+    title: "Winner – Digital Business Contest 2021",
+    subtitle: "Vietnam E‑Commerce Association",
+    date: "Oct 2021",
+    image: LogoDBC as unknown as string,
   },
   {
     type: "Award",
-    title: "Top Developer Award",
-    subtitle: "Vietnam Web Awards",
-    date: "2021",
-    image: "/images/award.png",
-    description: "Recognized for contributions to the open-source community.",
+    title: "Top 2 – Advanced Information Systems Contest",
+    subtitle: "Department of Information Systems, UIT",
+    date: "Dec 2021",
+    image: LogoAISC as unknown as string,
   },
 ];
+
 const AchievementsSection = () => {
+  const sections = useMemo(
+    () => [
+      { title: "Education", items: eduTimelineItems },
+      { title: "Certificates", items: certItems },
+      { title: "Awards", items: awardItems },
+    ],
+    []
+  );
+
   return (
-    <div className="relative border-l border-muted pl-6 space-y-10">
-      {timelineItems.map((item, index) => (
-        <div key={index} className="relative group">
-          {/* Timeline Dot */}
-          <div className="absolute -left-[10px] top-1 w-4 h-4 bg-primary rounded-full border-4 border-background z-10" />
-          {/* Timeline Card */}
-          <div className="bg-background/50 border border-muted rounded-xl p-4 shadow-md backdrop-blur-sm">
-            <div className="flex items-center gap-4">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-14 h-14 object-contain bg-white rounded-md p-1 border"
-              />
-              <div>
-                <h3 className="font-semibold text-lg">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.subtitle}</p>
-                <p className="text-xs text-muted-foreground italic">{item.date}</p>
-              </div>
-            </div>
-            <p className="mt-3 text-sm">{item.description}</p>
-            {item.link && (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-2 text-primary text-sm underline"
-              >
-                View Certificate
-              </a>
-            )}
+    <section aria-labelledby="achievements-heading" className="relative space-y-8">
+      {sections.map((section) => (
+        <div key={section.title} className="space-y-3">
+          <h3 className="font-semibold text-lg">{section.title}</h3>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {section.items.map((item, idx) => (
+              <AchievementCard key={`${section.title}-${idx}-${item.title}`} item={item} />
+            ))}
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
