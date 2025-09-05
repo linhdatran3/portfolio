@@ -92,7 +92,6 @@ export const ProjectsSection = () => {
     overflow-x-auto md:overflow-x-hidden
     overflow-y-hidden md:overflow-y-auto
     snap-x snap-mandatory md:snap-none
-    custom-scrollbar
   "
       >
         {projects.map((project) => (

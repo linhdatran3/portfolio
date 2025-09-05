@@ -36,16 +36,16 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <div className="relative p-4 pl-16 border-l-2 ml-6 border-primary">
+    <div className="relative p-4 pl-8 md:pl-16 border-l-2 ml-6 border-primary">
       <div className="absolute -left-6 -top-0 bg-primary p-3 rounded-xl">
         <Briefcase className="text-foreground" />
       </div>
       <h3 className="font-bold text-lg mb-6">Working Process</h3>
 
       {experiences.map((exp, index) => (
-        <div key={index} className="relative mb-8 pl-4 space-y-2">
+        <div key={index} className="relative mb-8 space-y-2">
           {/* Dot */}
-          <span className="absolute -left-[18px] top-4 w-3 h-3 bg-primary rounded-full border-2 border-muted" />
+          <span className="absolute -left-[39px] top-4 w-3 h-3 bg-primary rounded-full border-2 border-muted" />
           <div className="flex gap-2 items-center">
             <img src={exp.logo} alt={exp.company} className="rounded-full w-8 h-8 object-cover" />
             <h4 className="font-semibold">{exp.company}</h4>

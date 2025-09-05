@@ -75,7 +75,7 @@ const SkillsSection = () => {
         <div key={index} className="mb-10">
           <h3 className="font-semibold text-lg mb-3">{category.title}</h3>
           <div className="bg-foreground/5 backdrop-blur-lg rounded-2xl p-4 shadow-inner border border-foreground/10">
-            <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-6 place-items-center">
+            <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-6 place-items-center">
               {category.icons.map((icon, i) => (
                 <div
                   key={i}
