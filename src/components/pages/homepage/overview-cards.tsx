@@ -55,7 +55,7 @@ const OverviewCards = () => {
           <Image
             src={BlingGif}
             alt="bling"
-            className="absolute h-full w-full top-0 left-0 object-center"
+            className="absolute h-full w-full top-0 left-0 object-cover"
           />
           <p className="text-center">Experiences ⚡</p>
         </Card>

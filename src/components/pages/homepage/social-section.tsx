@@ -37,11 +37,13 @@ export const SocialSection = () => {
         <Tooltip key={item.tooltip}>
           <TooltipTrigger asChild>
             {item?.link ? (
-              <a href={item?.link} target="_blank">
+              <a href={item?.link} target="_blank" aria-label={item.tooltip}>
                 {item.icon}
               </a>
             ) : (
-              <button onClick={() => handleCopy(item.tooltip)}>{item.icon}</button>
+              <button aria-label={item.tooltip} onClick={() => handleCopy(item.tooltip)}>
+                {item.icon}
+              </button>
             )}
           </TooltipTrigger>
           <TooltipContent>

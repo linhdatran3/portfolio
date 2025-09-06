@@ -1,4 +1,4 @@
-import Ava from "@/assets/ava.jpg";
+import Ava from "@/assets/ava.webp";
 import { useTyping } from "@/hooks/useTyping";
 const IntroCard = () => {
   const typed = useTyping([
@@ -12,7 +12,11 @@ const IntroCard = () => {
       <img
         src={Ava}
         alt="linhda"
+        height={"190px"}
+        width={"190px"}
+        srcSet={`${Ava} 1x, ${Ava} 2x`}
         className="rounded-full w-40 h-40 object-cover mb-4 border-4 border-foreground"
+        loading="lazy"
       />
       <div className="bg-primary text-foreground rounded-xl px-6 py-4 text-center w-full">
         <p className="text-xl font-medium">

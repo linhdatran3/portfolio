@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const EducationCard = ({ className }: { className?: string }) => (
   <Card className={className}>
-    <CardContent className="space-y-4 overflow-y-auto custom-scrollbar">
+    <CardContent className="space-y-4 overflow-y-auto custom-scrollbar text-foreground">
       <div>
         <h3 className="text-lg font-semibold">Career Summary</h3>
         <p className="text-sm">
@@ -15,7 +15,7 @@ const EducationCard = ({ className }: { className?: string }) => (
       <div>
         <h3 className="text-lg font-semibold">Education</h3>
         <p>University Information of Technology - VNU</p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">2019 - 2023</p>
+        <p className="text-sm text-foreground/80">2019 - 2023</p>
         <p className="text-sm font-semibold">GPA - 8.67</p>
       </div>
 
